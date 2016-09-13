@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Allergens</title>
+    </head>
+    <body>
+        <h1>Enter your allergen score</h1>
+        <form method="post" action="/post_allergens">
+            <label>Your score between 0 and 255:</label>
+            <input type="number" min="0" max="255" name="score">
+            <button type="submit">Submit Score</button>
+        </form>
+
+        {% if allergens is not empty %}
+            <h2>Your are allergic to:</h2>
+            <ul>
+                {% for allergen in allergens.allergenArray %}
+                    <li>{{ allergen }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </body>
+</html>
